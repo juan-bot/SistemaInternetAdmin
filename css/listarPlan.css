@@ -1,0 +1,59 @@
+#planList .formulario{
+    height: 660px;
+}
+#planList .formulario form{
+    width: 90%;
+    padding-left: 5%;
+    padding-top: 20px;
+}
+#planList .scroll{
+    width:100%; 
+    height:400px; 
+    overflow:auto;
+    /*margin-top: 40px;*/
+  }
+#planList table{
+    width: 100%;
+    border: #EFF5F5 2px solid;
+}
+#planList .formulario form table th,td{
+    height: 35px;
+}
+#planList .formulario form table td:nth-child(1){
+    width: 12%;
+}
+#planList .formulario form table td:nth-child(2){
+    width: 11%;
+}
+#planList .formulario form table td:nth-child(3){
+    width: 11%;
+}
+#planList .formulario form table td:nth-child(4){
+    width: 11%;
+}
+#planList .formulario form table td:nth-child(5){
+    width: 11%;
+}
+#planList .formulario form table td:nth-child(6){
+    width: 11%;
+}
+#planList .formulario form table td:nth-child(7){
+    width: 12%;
+}
+#planList .formulario form table td:nth-child(8){
+    width: 11%;
+}
+#planList .formulario form table td:nth-child(9){
+    width: 10%;
+}
+#planList .formulario form table button{
+    margin-top: 2px;
+    width: 100%;
+    height: 30px;
+}
+#planList .scroll tr:nth-child(odd) {
+    background-color: #EFF5F5;
+}
+#planList .edit{
+    background-color: yellowgreen;
+}

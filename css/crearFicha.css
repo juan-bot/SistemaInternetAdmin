@@ -1,0 +1,14 @@
+#fichaAdd .formulario{
+    height: 500px;
+}
+#fichaAdd .formulario form{
+    padding-top: 30px;
+}
+#fichaAdd .formulario form input[type="text"],input[type="password"],#lugar{
+    width: 100%;
+    height: 30px;
+}
+#fichaAdd select{
+    width: 100%;
+    height: 30px;
+}

@@ -1,0 +1,39 @@
+#planAdd .formulario{
+    height: 780px;
+}
+#planAdd .formulario form{
+    padding-top: 30px;
+}
+#planAdd .formulario form fieldset{
+    margin-top: 20px;
+    width: 100%;
+}
+#planAdd .formulario form fieldset label{
+    height: 15px;
+    width: 50%;
+}
+#planAdd .formulario form fieldset label input{
+    height: 15px;
+    width: 15px;
+}
+#planAdd .formulario form select,input{
+    width: 100%;
+    margin-top: 2px;
+    height: 30px;
+}
+#planAdd .formulario form p{
+    width: 100%;
+}
+#planAdd .formulario form table{
+    width: 100%;
+}
+#planAdd .formulario form #vigencia{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+#planAdd .formulario .color /*p*/{
+    padding-top: 4px;
+    text-align: center;
+    background-color: #FFCC2C;
+}

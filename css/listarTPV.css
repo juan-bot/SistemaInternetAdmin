@@ -1,0 +1,42 @@
+#tpvList .formulario{
+    height: 660;
+}
+#tpvList .formulario form{
+    width: 70%;
+    padding-left: 15%;
+    padding-top: 20px;
+}
+#tpvList .scroll{
+    width:100%; 
+    height:400px; 
+    overflow:auto;
+    /*margin-top: 40px;*/
+  }
+#tpvList .formulario form table{
+    width: 100%;
+    border: #EFF5F5 2px solid;
+}
+#tpvList .formulario form table th,td{
+    height: 35px;
+}
+/*
+#tpvList .formulario form table th:nth-child(1),td:nth-child(1){
+    width: 45%;
+}
+#tpvList .formulario form table th:nth-child(2),td:nth-child(2){
+    width: 40%;
+}
+#tpvList .formulario form table th:nth-child(3),td:nth-child(3){
+    width: 15%;
+}*/
+#tpvList .formulario form table button{
+    margin-top: 2px;
+    width: 100%;
+    height: 30px;
+}
+#tpvList .scroll tr:nth-child(odd) {
+    background-color: #EFF5F5;
+}
+#tpvList .edit{
+    background-color: yellowgreen;
+}

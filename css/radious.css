@@ -1,0 +1,15 @@
+#confServidor .formulario{
+    height: 640px;
+
+}
+#confServidor .formulario form{
+    padding-top: 30px;
+}
+#confServidor .formulario form p{
+    width: 100%;
+}
+#confServidor .formulario #ServerF select,input{
+    width: 100%;
+    margin-top: 2px;
+    height: 30px;
+}

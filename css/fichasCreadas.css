@@ -1,0 +1,87 @@
+#fichasCreadas .formulario{
+    height: 660px;
+}
+#fichasCreadas .formulario form{
+  width: 90%;
+  padding-left: 5%;
+  padding-top: 20px;
+}
+#fichasCreadas .formulario form select,input{
+    width: 100%;
+    margin-top: 2px;
+    height: 30px;
+}
+#fichasCreadas .formulario form p{
+    width: 100%;
+}
+#fichasCreadas .scroll{
+  width:100%; 
+  height:400px; 
+  overflow:auto;
+  /*margin-top: 40px;*/
+}
+#fichasCreadas table{
+  width: 100%;
+  border: #EFF5F5 2px solid;
+}
+#fichasCreadas .scroll tr:nth-child(odd) {
+  background-color: #EFF5F5;
+}
+#fichasCreadas .formulario form table th,td{
+  height: 35px;
+}
+#fichasCreadas .formulario form table th:nth-child(1),td:nth-child(1){
+  width: 10%;
+}
+#fichasCreadas .formulario form table th:nth-child(2),td:nth-child(2){
+  width: 10%;
+}
+#fichasCreadas .formulario form table th:nth-child(3),td:nth-child(3){
+  width: 13%;
+}
+#fichasCreadas .formulario form table th:nth-child(4),td:nth-child(4){
+  width: 12%;
+}
+#fichasCreadas .formulario form table th:nth-child(5),td:nth-child(5){
+  width: 18%;
+}
+#fichasCreadas .formulario form table th:nth-child(6),td:nth-child(6){
+  width: 29%;
+}
+#fichasCreadas .formulario form table button{
+  margin-top: 2px;
+  width: 46%;
+  height: 30px;
+}
+#fichasCreadas .contenedorDate {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+ }
+ #fichasCreadas .date{
+    margin-top: 20px;
+    margin-left: 20px;
+  /* IMPORTANTE 
+  display: inline-block;*/
+ }
+ #fichasCreadas [type="date"] {
+   background:#fff url(../imagenes/calendario.svg)  97% 50% no-repeat ;
+ }
+ #fichasCreadas [type="date"]::-webkit-inner-spin-button {
+   display: none;
+ }
+ #fichasCreadas [type="date"]::-webkit-calendar-picker-indicator {
+   opacity: 0;
+ }
+ #fichasCreadas label {
+   display: block;
+ }
+ #fichasCreadas input {
+   border: 1px solid #c4c4c4;
+   border-radius: 5px;
+   background-color: #fff;
+   padding: 3px 5px;
+   box-shadow: inset 0 3px 6px #EFF5F5;
+   width: 190px;
+ }

@@ -1,0 +1,9 @@
+#buscarFichas .formulario{
+    height: 660px;
+}
+#buscarFichas .formulario form{
+    padding-top: 30px;
+}
+#buscarFichas .formulario form p{
+    width: 100%;
+}

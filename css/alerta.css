@@ -1,0 +1,131 @@
+
+.modal-ficha{
+	position:fixed;
+	top:0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transform: scale(0);
+	transition: all 500ms ease;
+}
+  .modal_content-ficha{
+	background-color: #fff;
+	width: 30vw;
+	height: 85vh;
+	padding-top: 15px;
+	padding-left: 20px;
+	position:fixed;
+
+}
+  .modal_content-ficha img{
+	width: 25%; 
+	height: 25%; 
+	margin-top: 0px;
+}
+  .modal_content-ficha img,  
+  .modal_content-ficha p,  
+  .modal_content-ficha h3,  
+  .modal_content-ficha button,  
+  .modal_content-ficha h4{
+	margin-top: 10px;
+}
+  .modal_content-ficha img,  
+  .modal_content-ficha button{
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+  .modal_content-ficha h3,  
+  .modal_content-ficha h4{
+	text-align: center;
+}
+.modal_content-ficha
+.info-modal{
+	height: 30px;
+	width: 96%;
+	background-color: #E0E0E0;
+	border-radius: 3px;
+	padding-top: 4px;
+	padding-left: 15px;
+}
+ .modal--show{
+	background-color: rgba(116, 113, 113, 0.8);
+	filter:brightness(1);
+	transform: scale(1);
+ } 
+ 
+ 
+ /*------------ alertaaaa 2 ----------*/
+
+ .modal-retirar-saldo{
+	position:fixed;
+	top:0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transform: scale(0);
+	transition: all 500ms ease;
+}
+.modal_content-retirar-saldo{
+	background-color: #fff;
+	width: 350px;
+	height: 250px;
+	padding-top: 15px;
+	padding-left: 20px;
+	position:fixed;
+  }
+.modal-retirar-saldo--show{
+	background-color: rgba(116, 113, 113, 0.8);
+	filter:brightness(1);
+	transform: scale(1);
+} 
+  .modal-retirar-saldo button{
+	  border: none;
+  }
+/*
+ <button type="button" id="moda"  name="button">abrir modal1</button>
+
+    <div class="modal-ficha" id="modal">
+      <div class="modal_content-ficha" id="modal_content">
+        <img src="qr.svg" alt="">
+        <h3>User: P636</h3>
+        <h3>Pass: 935</h3>
+        <h4>Ficha encontrada</h4>
+        <p >Plan</p>
+        <p class="info-modal">Prueba</p>
+        <p>Vendedor</p>
+        <p class="info-modal">Aaron Chavez</p>
+        <p>Status</p>
+        <p class="info-modal">Sin Usarse</p>
+        <p>Fecha y Hora Creacion</p>
+        <p class="info-modal"></p>
+        <button>Cerrar</button>
+      </div>
+    </div>
+
+    <button type="button" id="moda2"  name="button">abrir modal2</button>
+    
+    <div class="modal-retirar-saldo" id="modal-retirar-saldo">
+      <div class="modal_content-retirar-saldo" >
+        <p style="text-align: center;margin-top: 10px;">Retirar Saldo Vendedor Aaron Chavez</p>
+        <p style="text-align: center;margin-top: 25px;" >Total Venta <strong>$435</strong></p>
+        <div style=" margin-top: 20px; width: 310px; border: solid;
+         border-width: 2px; border-color:#C3C3C3;">
+          <p style="text-align: center;">Monto Retirar 9.6</p>
+        </div>
+        <div style="display: flex; justify-content: center;  margin-top: 30px;">
+          <button id="cancelar" style="width: 90px; height: 40px; 
+          padding: 10px; margin: 10px; background-color:#A4A4A4;color: #fff;"> Cancelar</button>
+          <button style="width: 90px; height: 40px; padding: 10px; 
+          margin: 10px; background-color: #0070B2; color: #fff;">Retirar</button>
+        </div>
+      </div>
+    </div>
+
+*/

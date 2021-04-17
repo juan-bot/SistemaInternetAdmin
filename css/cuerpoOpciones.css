@@ -1,0 +1,44 @@
+
+.pagina{
+    /*position: fixed;*/
+    margin-top: 10px;
+    height: 100%;
+    width: 100%;
+    font-family: arial;
+}
+.pagina .formulario{
+    margin-top: 100px;
+    width: 90%;
+    margin: auto;
+    background-color: var(--formulario);
+    flex: none;
+}
+.formulario form{
+    width: 70%;
+    padding-left: 15%;
+}
+
+
+.cabecera{   
+    display: flex;
+    height: 60px;
+    width: 90%;
+    margin: auto;
+    background-color: var(--headerContenido);
+}
+.cabecera img{
+    margin-left: 5%;
+    margin-top: 5px;
+    width: 50px;
+    height: 50px;  
+}
+h1{
+    margin-top: 9px;
+    margin-left: 10%;
+    color: var(--colorLetraHeaderContenido);
+}
+
+.pagina .formulario button[type=submit]{
+    margin-top: 20px;
+    height: 40px;
+}
