@@ -35,7 +35,8 @@
     height: 30px;
 }
 #tpvList .scroll tr:nth-child(odd) {
-    background-color: #EFF5F5;
+    background-color:#EFF5F5;
+    /*background-color: #EFF5F5;*/
 }
 #tpvList .edit{
     background-color: yellowgreen;

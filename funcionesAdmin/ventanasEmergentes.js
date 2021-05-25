@@ -1,7 +1,10 @@
 let btn = document.getElementById('moda');
 let modal =document.getElementById("modal");
 let close=document.getElementById("cerrar");
-let clic=0;
 
-btn.addEventListener('click',()=>modal.classList.add('modal--show','modal--showcolor'));
+btn.onclick=function(){
+    modal.classList.add('modal--show',);
+    event.preventDefault();//evita que se recargue la pagina
+}
+//btn.addEventListener('click',()=>modal.classList.add('modal--show','modal--showcolor'));
 modal.addEventListener('click',()=>modal.classList.remove('modal--show'));

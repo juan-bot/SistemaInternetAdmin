@@ -17,14 +17,28 @@
     <link rel='stylesheet' href='css/fichasActivas.css'/>
     <link rel='stylesheet' href='css/crearFicha.css'/>
     <link rel='stylesheet' href='css/dashboard.css'/>
-  
+    <link rel='stylesheet' href='css/alerta.css'/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Administrador</title>
 </head>
 <body>
-
+<!-- alertaa ficha creada -->
+    <div class="modal-ficha" id="modal">
+        <div class="modal_content-ficha ficha" >
+          <img src="imagenes/qr.svg" alt="">
+          <h3>User: P636</h3>
+          <h3>Pass: 935</h3>
+          <h4>Ficha generada exitosamente</h4>
+          <div style="display: flex; justify-content: center;  margin-top: 30px;">
+            <button id="cancelar" style="width: 90px; height: 40px; 
+            padding: 10px; margin: 10px; background-color:#A4A4A4;color: #fff;"> Cancelar</button>
+            <button style="width: 90px; height: 40px; padding: 10px; 
+            margin: 10px; background-color: #0070B2; color: #fff;">Imprimir</button>
+          </div>
+        </div>
+      </div>
 
     <div class="contenedor" >
         <div class="menu">
@@ -753,11 +767,9 @@
                         </div>
                     </div>
                     <input style="margin-top: 30px;" type="file" accept="image/*,.pdf">
-                    <button type="submit">Crear Ficha</button>
+                    <button type="submit" id="moda">Crear Ficha</button>
                 </form>
-                
              </div>
-             
         </div>
         
         <!---------------- FICHAS CREADAS --------------------------->
@@ -924,7 +936,8 @@
         </div>
       </div>
       <script>
-        new Chart(document.getElementById("bar-chart"), {
+          
+        /*new Chart(document.getElementById("bar-chart"), {
             type: 'bar',
             data: {
             labels: ["San Miguel", "Oaxaca", "Mexico"],
@@ -981,13 +994,126 @@
                 text: 'TOP TPV MES ACTUAL'
             }
             }
-        });
+        });*/
+        var coloresg1 = [];
+        var coloresg2 = [];
+        var coloresg3 = [];
+          
+        function generaColores(n){
+            let color= [];
+            for(i=0;i<n;i++)
+                color.push(colorHEX());
+            return color;
+        }
+        function generarLetra(){
+                var letras = ["a","b","c","d","e","f","0","1","2","3","4","5","6","7","8","9"];
+                var numero = (Math.random()*15).toFixed(0);
+                return letras[numero];
+            }
+        function colorHEX(){
+                var coolor = "";
+                for(var i=0;i<6;i++){
+                    coolor = coolor + generarLetra() ;
+                }
+                return "#" + coolor;
+            }
+        coloresg1=generaColores(5);
+        coloresg2=generaColores(4);  
+        coloresg3=generaColores(3);
+        console.log(coloresg1);
+    new Chart(document.getElementById("bar-chart"), {
+        
+    type: 'bar',
+    data: {
+    labels: ["San Miguel", "Oaxaca", "Mexico"],
+    datasets: [
+        {
+        label: "Venta Total Dia de Hoy",
+        backgroundColor: coloresg3,////////////////////solo asignas el arreglo
+        data: [2478,5267,734]
+        }
+    ]
+    },
+    options: {
+        plugins: {
+            colorschemes: {
+              scheme: 'brewer.Paired12'
+      
+            }
+      
+          }
+        },
+    //legend: { display: false },
+    title: {
+        display: true,
+        text: 'VENTA ULTIMOS 7 DIAS'
+    },
+   
+});
+new Chart(document.getElementById("doughnut-chart1"), {
+    type: 'doughnut',
+    data: {
+        labels: ["Plan 1", "Plan 2", "Plan 3","Plan 1", "Plan 2", "Plan 3"],
+        datasets: [
+                {
+                label: "Population (millions)",
+               
+                backgroundColor: coloresg1,////////////////////solo asignas el arreglo
+                data: [2478,784,433,2478,784,43]
+                }
+        ]
+    },
+    options: {
+        title: {
+            display: true,
+            text: 'TOP PLANES MES ACTUAL'
+        },
+        plugins: {
+
+            colorschemes: {
+      
+              scheme: 'brewer.Paired12'
+      
+            }
+      
+          }
+    }
+});
+new Chart(document.getElementById("doughnut-chart2"), {
+    type: 'doughnut',
+    data: {
+    labels: ["Plan 1", "Plan 2", "Plan 3"],
+    datasets: [
+        {
+        label: "Population (millions)",
+        backgroundColor: coloresg2,////////////////////solo asignas el arreglo
+        data: [2478,784,433]
+        }
+    ]
+    },
+    options: {
+    title: {
+        display: true,
+        text: 'TOP TPV MES ACTUAL'
+    },
+    plugins: {
+
+        colorschemes: {
+  
+          scheme: 'brewer.Paired12'
+  
+        }
+  
+      }
+    }
+});
       </script>
       <script src="funcionesAdmin/despliegoBotonesLeft.js"></script>
       <script src="funcionesAdmin/manejoMouseAdmin.js"></script>
       <script src="funcionesAdmin/clickOpcionesAdmin.js"></script>
       <script src="funcionesAdmin/vendedor.js"></script>
       <script src="funcionesAdmin/inputNumbers.js"></script>
+      <script src="funcionesAdmin/ventanasEmergentes.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
 </body>
 </html>
