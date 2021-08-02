@@ -6,7 +6,7 @@
 }
 #planAdd .formulario form fieldset{
     margin-top: 20px;
-    width: 100%;
+    width: 92%;
 }
 #planAdd .formulario form fieldset label{
     height: 15px;
@@ -16,7 +16,12 @@
     height: 15px;
     width: 15px;
 }
-#planAdd .formulario form select,input{
+#planAdd .formulario form input{
+    width: 100%;
+    margin-top: 2px;
+    height: 30px;
+}
+#planAdd .formulario form select{
     width: 100%;
     margin-top: 2px;
     height: 30px;
@@ -27,13 +32,67 @@
 #planAdd .formulario form table{
     width: 100%;
 }
+
 #planAdd .formulario form #vigencia{
     width: 100%;
     display: flex;
-    flex-wrap: wrap;
+    justify-content: space-between;
 }
 #planAdd .formulario .color /*p*/{
     padding-top: 4px;
     text-align: center;
-    background-color: #FFCC2C;
+    background-color: #5CCADF;
+}
+
+
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.quant,
+.quant{
+  cursor: pointer;
+  font-size: 20px;
+  width: 40px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  outline: none;
+}
+.quantity-num {
+  font-size: 15px;
+  border-radius: 4px;
+  outline: none;
+}
+
+#contenedor-numbers{
+    height: 80px;
+    padding-bottom: 5%;
+display: -ms-flexbox;
+    display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  flex-wrap:nowrap;
+   justify-content: flex-start;
+     align-content: space-between;
+ align-items: flex-start;
+}
+
+#cajanumbers1{
+    padding-top: 25%;
+
+ flex: 0 1 auto;
+  align-self: flex-start;
+}
+#cajanumbers2{
+    width: 120;
+ flex: 0 1 auto;
+  align-self: center;
 }

@@ -7,9 +7,9 @@
     padding-top: 20px;
 }
 #tpvList .scroll{
-    width:100%; 
-    height:400px; 
-    overflow:auto;
+    width:100%;
+    height:400px;
+    overflow-y:auto !important;
     /*margin-top: 40px;*/
   }
 #tpvList .formulario form table{
@@ -19,25 +19,32 @@
 #tpvList .formulario form table th,td{
     height: 35px;
 }
-/*
+.hscroll {
+  overflow-x: auto; /* Horizontal */
+}
+
 #tpvList .formulario form table th:nth-child(1),td:nth-child(1){
-    width: 45%;
+    width: 33% !important;
 }
 #tpvList .formulario form table th:nth-child(2),td:nth-child(2){
-    width: 40%;
+    width: 33% !important;
 }
 #tpvList .formulario form table th:nth-child(3),td:nth-child(3){
-    width: 15%;
-}*/
+    width: 33% !important;
+}
 #tpvList .formulario form table button{
     margin-top: 2px;
-    width: 100%;
+    width: 100% !important;
     height: 30px;
 }
 #tpvList .scroll tr:nth-child(odd) {
-    background-color:#EFF5F5;
-    /*background-color: #EFF5F5;*/
+    background-color: #EFF5F5;
 }
 #tpvList .edit{
     background-color: yellowgreen;
+}
+@media screen and (max-width: 1000px)   {
+  #tpvList table{
+    width: 1000px !important;
+  }
 }

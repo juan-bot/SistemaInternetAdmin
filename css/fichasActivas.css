@@ -7,30 +7,32 @@
   padding-top: 20px;
 }
 #fichasActivas .scroll{
-  width:100%; 
-  height:400px; 
-  overflow:auto;
+  width:100%;
+  height:400px;
+  overflow-y:auto;
   /*margin-top: 40px;*/
 }
 #fichasActivas table{
   width: 100%;
   border: #EFF5F5 2px solid;
 }
+
 #fichasActivas .scroll tr:nth-child(odd) {
   background-color: #EFF5F5;
 }
 #fichasActivas .formulario form td:nth-child(1){
-  width: 10%;
+  width: 25% !important;
 }
 #fichasActivas .formulario form td:nth-child(2){
-  width: 6%;
+  width: 25% !important;
 }
 #fichasActivas .formulario form td:nth-child(3){
-  width: 15%;
+  width: 25% !important;
 }
 #fichasActivas .formulario form td:nth-child(4){
-  width: 14%;
+  width: 25% !important;
 }
+/*
 #fichasActivas .formulario form td:nth-child(5){
   width: 10%;
 }
@@ -45,8 +47,13 @@
 }
 #fichasActivas .formulario form td:nth-child(9){
   width: 20%;
-}
+}*/
 #fichasActivas .formulario form button{
   width: 100%;
   height: 100%;
+}
+@media screen and (max-width: 1000px)   {
+  #fichasActivas table{
+    width: 800px;
+  }
 }

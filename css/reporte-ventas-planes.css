@@ -1,0 +1,21 @@
+#reporte-ventas-planes .formulario{
+    height: 660px;
+}
+#reporte-ventas-planes .formulario form table th,td{
+  height: 35px;
+  text-align: center;
+}
+#reporte-ventas-planes .formulario form table th:nth-child(1),td:nth-child(1){
+  width: 33%;
+}
+#reporte-ventas-planes .formulario form table th:nth-child(2),td:nth-child(2){
+  width: 33%;
+}
+#reporte-ventas-planes .formulario form table th:nth-child(3),td:nth-child(3){
+  width: 33%;
+}
+#reporte-ventas-planes .formulario form table button{
+  margin-top: 2px;
+  width: 46%;
+  height: 30px;
+}

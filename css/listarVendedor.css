@@ -7,9 +7,9 @@
     padding-top: 20px;
 }
 #vendedorList .scroll{/*agrego*/
-    width:100%; 
-    height:400px; 
-    overflow:auto;
+    width:100%;
+    height:400px;
+
     /*margin-top: 40px;*/
   }
 #vendedorList table{
@@ -18,30 +18,35 @@
 }
 #vendedorList .formulario form table th,td{
     height: 35px;
-}/*
-#vendedorList .formulario form table th:nth-child(1),td:nth-child(1){
-    width: 28%;
 }
-#vendedorList .formulario form table th:nth-child(2),td:nth-child(2){
-    width: 5%;
+#vendedorList .formulario form table td:nth-child(1){
+    width: 28% !important;
 }
-#vendedorList .formulario form table th:nth-child(3),td:nth-child(3){
-    width: 18%;
+#vendedorList .formulario form table td:nth-child(2){
+    width: 10% !important;
 }
-#vendedorList .formulario form table th:nth-child(4),td:nth-child(4){
-    width: 12%;
+#vendedorList .formulario form table td:nth-child(3){
+    width: 18% !important;
 }
-#vendedorList .formulario form table th:nth-child(5),td:nth-child(5){
-    width: 8%;
+#vendedorList .formulario form table td:nth-child(4){
+    width: 12% !important;
 }
-#vendedorList .formulario form table th:nth-child(6),td:nth-child(6){
-    width: 29%;
-}*/
+#vendedorList .formulario form table td:nth-child(5){
+    width: 8% !important;
+}
+#vendedorList .formulario form table td:nth-child(6){
+    width: 24% !important;
+}
 #vendedorList .formulario form table button{
     margin-top: 2px;
-    width: 46%;
+    width: 32%;
     height: 30px;
 }
 #vendedorList .scroll/*agrego*/ tr:nth-child(odd) {
     background-color: #EFF5F5;
+}
+@media screen and (max-width: 1400px)   {
+  #vendedorList table{
+    width: 1200px;
+  }
 }

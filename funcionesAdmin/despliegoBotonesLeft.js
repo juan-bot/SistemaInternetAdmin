@@ -25,6 +25,7 @@ var btn4=document.getElementById("Vendedor");
 var btn5=document.getElementById("Reportes");
 var btn6=document.getElementById("Fichas");
 var btn7=document.getElementById("Servidor");
+var btn8=document.getElementById("DatosEmpresa");
 // imagenes flechas
 var arrowU1=document.getElementById("fu1");
 var arrowD1=document.getElementById("fd1");
@@ -46,9 +47,13 @@ var arrowD6=document.getElementById("fd6");
 
 var arrowU7=document.getElementById("fu7");
 var arrowD7=document.getElementById("fd7");
-var c1=0,c2=0,c3=0,c4=0,c5=0,c6=0,c7=0;//contador de clics para cada boton
+
+var arrowU8=document.getElementById("fu8");
+var arrowD8=document.getElementById("fd8");
+var c1=0,c2=0,c3=0,c4=0,c5=0,c6=0,c7=0,c8=0;//contador de clics para cada boton
 function mostrar_ocultar(boton,opc){//funcion para botones padre
   //img flecha de arriba y abajo
+  console.log("entraaaa");
   var btnPadre=document.getElementById(boton);
   var ic1 = document.getElementById("fd"+opc);
   var ic2 = document.getElementById("fu"+opc);
@@ -57,8 +62,9 @@ function mostrar_ocultar(boton,opc){//funcion para botones padre
     case '1': // dashboard
       c1++;
       //despliega-oculta botones
-      op1.style.display = (op1.style.display == 'none') ? 'flex' : 'none';
+      //op1.style.display = (op1.style.display == 'none') ? 'flex' : 'none';
       estiloClick(c1,btnPadre,ic1,ic2,1);
+      dashbo();// funcion que muestra la pagina del dashboard
     break;
     case '2': // plan
       c2++;
@@ -102,11 +108,19 @@ function mostrar_ocultar(boton,opc){//funcion para botones padre
       estiloClick(c6,btnPadre,ic1,ic2,6);
     break;
     case '7':
-      c7++;
-      //despliega-oculta botones
-      op18.style.display = (op18.style.display == 'none') ? 'flex' : 'none';
-      estiloClick(c7,btnPadre,ic1,ic2,7);
-    break;
+       c7++;
+       //despliega-oculta botones
+       //op18.style.display = (op18.style.display == 'none') ? 'flex' : 'none';
+       estiloClick(c7,btnPadre,ic1,ic2,7);
+       serv();
+     break;
+     case '8':
+       c8++;
+       //despliega-oculta botones
+       //op18.style.display = (op18.style.display == 'none') ? 'flex' : 'none';
+       estiloClick(c8,btnPadre,ic1,ic2,8);
+       dataEmpre();
+     break;
   }
 }
 
@@ -121,153 +135,167 @@ function estiloClick(clicks,btn,f1,f2,n){
     Reestablece(n);
     Oculta(n);
   }
-  else if(clicks==2){//reestablece el estilo del boton 
+  else if(clicks==2){//reestablece el estilo del boton
     /*btn.style.backgroundColor = "#FFCC2C";*/
     btn.style.color="#B5B8BC";
     btn.style.borderColor="#B5B8BC";
     f1.style.display='flex';
     f2.style.display='none';
-    c1=c2=c3=c4=c5=c6=c7=0;
-  } 
+    c1=c2=c3=c4=c5=c6=c7=c8=0;
+  }
 }
 function Reestablece(n){
   switch(n){
     case 1:
     //botones hijos
-      op2.style.display='none';
-      op3.style.display='none';
-      op4.style.display='none';
-      op5.style.display='none';
-      op6.style.display='none';
-      op7.style.display='none';
-      op8.style.display='none';
-      op9.style.display='none';
-      op10.style.display='none';
-      op11.style.display='none';
-      op12.style.display='none';
-      op13.style.display='none';
-      op14.style.display='none';
-      op15.style.display='none';
-      op16.style.display='none';
-      op17.style.display='none';
-      op18.style.display='none';
-    //botones padre
-      btn2.style.borderColor = "#B5B8BC";
-      btn3.style.borderColor = "#B5B8BC";
-      btn4.style.borderColor = "#B5B8BC";
-      btn5.style.borderColor = "#B5B8BC";
-      btn6.style.borderColor = "#B5B8BC";
-      btn7.style.borderColor = "#B5B8BC";
-      btn2.style.color = "#B5B8BC";
-      btn3.style.color = "#B5B8BC";
-      btn4.style.color = "#B5B8BC";
-      btn5.style.color = "#B5B8BC";
-      btn6.style.color = "#B5B8BC";
-      btn7.style.color = "#B5B8BC";
-    //flechas
-      arrowD2.style.display='none';
-      arrowU2.style.display='none';
-      arrowD3.style.display='none';
-      arrowU3.style.display='none';
-      arrowD4.style.display='none';
-      arrowU4.style.display='none';
-      arrowD5.style.display='none';
-      arrowU5.style.display='none';
-      arrowD6.style.display='none';
-      arrowU6.style.display='none';
-      arrowD7.style.display='none';
-      arrowU7.style.display='none';
+    op2.style.display='none';
+    op3.style.display='none';
+    op4.style.display='none';
+    op5.style.display='none';
+    op6.style.display='none';
+    op7.style.display='none';
+    op8.style.display='none';
+    op9.style.display='none';
+    op10.style.display='none';
+    op11.style.display='none';
+    op12.style.display='none';
+    op13.style.display='none';
+    op14.style.display='none';
+    op15.style.display='none';
+    op16.style.display='none';
+    op17.style.display='none';
+    op18.style.display='none';
+  //botones padre
+    btn2.style.borderColor = "#B5B8BC";
+    btn3.style.borderColor = "#B5B8BC";
+    btn4.style.borderColor = "#B5B8BC";
+    btn5.style.borderColor = "#B5B8BC";
+    btn6.style.borderColor = "#B5B8BC";
+    btn7.style.borderColor = "#B5B8BC";
+    btn8.style.borderColor = "#B5B8BC";
+
+    btn2.style.color = "#B5B8BC";
+    btn3.style.color = "#B5B8BC";
+    btn4.style.color = "#B5B8BC";
+    btn5.style.color = "#B5B8BC";
+    btn6.style.color = "#B5B8BC";
+    btn7.style.color = "#B5B8BC";
+    btn8.style.color = "#B5B8BC";
+  //flechas
+    arrowD2.style.display='none';
+    arrowU2.style.display='none';
+    arrowD3.style.display='none';
+    arrowU3.style.display='none';
+    arrowD4.style.display='none';
+    arrowU4.style.display='none';
+    arrowD5.style.display='none';
+    arrowU5.style.display='none';
+    arrowD6.style.display='none';
+    arrowU6.style.display='none';
+    arrowD7.style.display='none';
+    arrowU7.style.display='none';
+    arrowD8.style.display='none';
+    arrowU8.style.display='none';
     break;
     case 2:
       //botones hijos
       op1.style.display='none';
-      op4.style.display='none';
-      op5.style.display='none';
-      op6.style.display='none';
-      op7.style.display='none';
-      op8.style.display='none';
-      op9.style.display='none';
-      op10.style.display='none';
-      op11.style.display='none';
-      op12.style.display='none';
-      op13.style.display='none';
-      op14.style.display='none';
-      op15.style.display='none';
-      op16.style.display='none';
-      op17.style.display='none';
-      op18.style.display='none';
-      //botones padre
-      btn1.style.borderColor = "#B5B8BC";
-      btn3.style.borderColor = "#B5B8BC";
-      btn4.style.borderColor = "#B5B8BC";
-      btn5.style.borderColor = "#B5B8BC";
-      btn6.style.borderColor = "#B5B8BC";
-      btn7.style.borderColor = "#B5B8BC";
-      btn1.style.color = "#B5B8BC";
-      btn3.style.color = "#B5B8BC";
-      btn4.style.color = "#B5B8BC";
-      btn5.style.color = "#B5B8BC";
-      btn6.style.color = "#B5B8BC";
-      btn7.style.color = "#B5B8BC";
-      //flechas
-      arrowD1.style.display='none';
-      arrowU1.style.display='none';
-      arrowD3.style.display='none';
-      arrowU3.style.display='none';
-      arrowD4.style.display='none';
-      arrowU4.style.display='none';
-      arrowD5.style.display='none';
-      arrowU5.style.display='none';
-      arrowD6.style.display='none';
-      arrowU6.style.display='none';
-      arrowD7.style.display='none';
-      arrowU7.style.display='none';
+       op4.style.display='none';
+       op5.style.display='none';
+       op6.style.display='none';
+       op7.style.display='none';
+       op8.style.display='none';
+       op9.style.display='none';
+       op10.style.display='none';
+       op11.style.display='none';
+       op12.style.display='none';
+       op13.style.display='none';
+       op14.style.display='none';
+       op15.style.display='none';
+       op16.style.display='none';
+       op17.style.display='none';
+       op18.style.display='none';
+       //botones padre
+       btn1.style.borderColor = "#B5B8BC";
+       btn3.style.borderColor = "#B5B8BC";
+       btn4.style.borderColor = "#B5B8BC";
+       btn5.style.borderColor = "#B5B8BC";
+       btn6.style.borderColor = "#B5B8BC";
+       btn7.style.borderColor = "#B5B8BC";
+       btn8.style.borderColor = "#B5B8BC";
+
+       btn1.style.color = "#B5B8BC";
+       btn3.style.color = "#B5B8BC";
+       btn4.style.color = "#B5B8BC";
+       btn5.style.color = "#B5B8BC";
+       btn6.style.color = "#B5B8BC";
+       btn7.style.color = "#B5B8BC";
+       btn8.style.color = "#B5B8BC";
+       //flechas
+       arrowD1.style.display='none';
+       arrowU1.style.display='none';
+       arrowD3.style.display='none';
+       arrowU3.style.display='none';
+       arrowD4.style.display='none';
+       arrowU4.style.display='none';
+       arrowD5.style.display='none';
+       arrowU5.style.display='none';
+       arrowD6.style.display='none';
+       arrowU6.style.display='none';
+       arrowD7.style.display='none';
+       arrowU7.style.display='none';
+       arrowD8.style.display='none';
+       arrowU8.style.display='none';
     break;
     case 3:
       //botones hijos
       op1.style.display='none';
-      op2.style.display='none';
-      op3.style.display='none';
-      op6.style.display='none';
-      op7.style.display='none';
-      op8.style.display='none';
-      op9.style.display='none';
-      op10.style.display='none';
-      op11.style.display='none';
-      op12.style.display='none';
-      op13.style.display='none';
-      op14.style.display='none';
-      op15.style.display='none';
-      op16.style.display='none';
-      op17.style.display='none';
-      op18.style.display='none';
-      //botones padre
-      btn1.style.borderColor = "#B5B8BC";
-      btn2.style.borderColor = "#B5B8BC";
-      btn4.style.borderColor = "#B5B8BC";
-      btn5.style.borderColor = "#B5B8BC";
-      btn6.style.borderColor = "#B5B8BC";
-      btn7.style.borderColor = "#B5B8BC";
+       op2.style.display='none';
+       op3.style.display='none';
+       op6.style.display='none';
+       op7.style.display='none';
+       op8.style.display='none';
+       op9.style.display='none';
+       op10.style.display='none';
+       op11.style.display='none';
+       op12.style.display='none';
+       op13.style.display='none';
+       op14.style.display='none';
+       op15.style.display='none';
+       op16.style.display='none';
+       op17.style.display='none';
+       op18.style.display='none';
+       //botones padre
+       btn1.style.borderColor = "#B5B8BC";
+       btn2.style.borderColor = "#B5B8BC";
+       btn4.style.borderColor = "#B5B8BC";
+       btn5.style.borderColor = "#B5B8BC";
+       btn6.style.borderColor = "#B5B8BC";
+       btn7.style.borderColor = "#B5B8BC";
+       btn8.style.borderColor = "#B5B8BC";
 
-      btn1.style.color = "#B5B8BC";
-      btn2.style.color = "#B5B8BC";
-      btn4.style.color = "#B5B8BC";
-      btn5.style.color = "#B5B8BC";
-      btn6.style.color = "#B5B8BC";
-      btn7.style.color = "#B5B8BC";
-      //flechas
-      arrowD1.style.display='none';
-      arrowU1.style.display='none';
-      arrowD2.style.display='none';
-      arrowU2.style.display='none';
-      arrowD4.style.display='none';
-      arrowU4.style.display='none';
-      arrowD5.style.display='none';
-      arrowU5.style.display='none';
-      arrowD6.style.display='none';
-      arrowU6.style.display='none';
-      arrowD7.style.display='none';
-      arrowU7.style.display='none';
+       btn1.style.color = "#B5B8BC";
+       btn2.style.color = "#B5B8BC";
+       btn4.style.color = "#B5B8BC";
+       btn5.style.color = "#B5B8BC";
+       btn6.style.color = "#B5B8BC";
+       btn7.style.color = "#B5B8BC";
+       btn8.style.color = "#B5B8BC";
+       //flechas
+       arrowD1.style.display='none';
+       arrowU1.style.display='none';
+       arrowD2.style.display='none';
+       arrowU2.style.display='none';
+       arrowD4.style.display='none';
+       arrowU4.style.display='none';
+       arrowD5.style.display='none';
+       arrowU5.style.display='none';
+       arrowD6.style.display='none';
+       arrowU6.style.display='none';
+       arrowD7.style.display='none';
+       arrowU7.style.display='none';
+       arrowD8.style.display='none';
+       arrowU8.style.display='none';
     break;
     case 4:
       //botones hijos
@@ -294,6 +322,7 @@ function Reestablece(n){
       btn5.style.borderColor = "#B5B8BC";
       btn6.style.borderColor = "#B5B8BC";
       btn7.style.borderColor = "#B5B8BC";
+      btn8.style.borderColor = "#B5B8BC";
 
       btn1.style.color = "#B5B8BC";
       btn2.style.color = "#B5B8BC";
@@ -301,6 +330,7 @@ function Reestablece(n){
       btn5.style.color = "#B5B8BC";
       btn6.style.color = "#B5B8BC";
       btn7.style.color = "#B5B8BC";
+      btn8.style.color = "#B5B8BC";
       //flechas
       arrowD1.style.display='none';
       arrowU1.style.display='none';
@@ -314,6 +344,8 @@ function Reestablece(n){
       arrowU6.style.display='none';
       arrowD7.style.display='none';
       arrowU7.style.display='none';
+      arrowD8.style.display='none';
+      arrowU8.style.display='none';
     break;
     case 5:
       //botones hijos
@@ -336,6 +368,7 @@ function Reestablece(n){
       btn4.style.borderColor = "#B5B8BC";
       btn6.style.borderColor = "#B5B8BC";
       btn7.style.borderColor = "#B5B8BC";
+      btn8.style.borderColor = "#B5B8BC";
 
       btn1.style.color = "#B5B8BC";
       btn2.style.color = "#B5B8BC";
@@ -343,6 +376,7 @@ function Reestablece(n){
       btn4.style.color = "#B5B8BC";
       btn6.style.color = "#B5B8BC";
       btn7.style.color = "#B5B8BC";
+      btn8.style.color = "#B5B8BC";
       //flechas
       arrowD1.style.display='none';
       arrowU1.style.display='none';
@@ -356,6 +390,8 @@ function Reestablece(n){
       arrowU6.style.display='none';
       arrowD7.style.display='none';
       arrowU7.style.display='none';
+      arrowD8.style.display='none';
+      arrowU8.style.display='none';
     break;
     case 6:
       //botones hijos
@@ -380,6 +416,7 @@ function Reestablece(n){
       btn4.style.borderColor = "#B5B8BC";
       btn5.style.borderColor = "#B5B8BC";
       btn7.style.borderColor = "#B5B8BC";
+      btn8.style.borderColor = "#B5B8BC";
 
       btn1.style.color = "#B5B8BC";
       btn2.style.color = "#B5B8BC";
@@ -387,6 +424,8 @@ function Reestablece(n){
       btn4.style.color = "#B5B8BC";
       btn5.style.color = "#B5B8BC";
       btn7.style.color = "#B5B8BC";
+      btn8.style.color = "#B5B8BC";
+
       //flechas
       arrowD1.style.display='none';
       arrowU1.style.display='none';
@@ -400,8 +439,62 @@ function Reestablece(n){
       arrowU5.style.display='none';
       arrowD7.style.display='none';
       arrowU7.style.display='none';
+      arrowD8.style.display='none';
+      arrowU8.style.display='none';
     break;
     case 7:
+    //botones hijos
+    op1.style.display='none';
+    op2.style.display='none';
+    op3.style.display='none';
+    op4.style.display='none';
+    op5.style.display='none';
+    op6.style.display='none';
+    op7.style.display='none';
+    op8.style.display='none';
+    op9.style.display='none';
+    op10.style.display='none';
+    op11.style.display='none';
+    op12.style.display='none';
+    op13.style.display='none';
+    op14.style.display='none';
+    op15.style.display='none';
+    op16.style.display='none';
+    op17.style.display='none';
+  //botones padre
+    btn2.style.borderColor = "#B5B8BC";
+    btn3.style.borderColor = "#B5B8BC";
+    btn4.style.borderColor = "#B5B8BC";
+    btn5.style.borderColor = "#B5B8BC";
+    btn6.style.borderColor = "#B5B8BC";
+    btn1.style.borderColor = "#B5B8BC";
+    btn8.style.borderColor = "#B5B8BC";
+
+    btn2.style.color = "#B5B8BC";
+    btn3.style.color = "#B5B8BC";
+    btn4.style.color = "#B5B8BC";
+    btn5.style.color = "#B5B8BC";
+    btn6.style.color = "#B5B8BC";
+    btn1.style.color = "#B5B8BC";
+    btn8.style.color = "#B5B8BC";
+  //flechas
+    arrowD2.style.display='none';
+    arrowU2.style.display='none';
+    arrowD3.style.display='none';
+    arrowU3.style.display='none';
+    arrowD4.style.display='none';
+    arrowU4.style.display='none';
+    arrowD5.style.display='none';
+    arrowU5.style.display='none';
+    arrowD6.style.display='none';
+    arrowU6.style.display='none';
+    arrowD1.style.display='none';
+    arrowU1.style.display='none';
+    arrowD8.style.display='none';
+    arrowU8.style.display='none';
+      //c2=c3=c4=c5=c6=c7=0;
+    break;
+    case 8:
     //botones hijos
       op1.style.display='none';
       op2.style.display='none';
@@ -420,6 +513,7 @@ function Reestablece(n){
       op15.style.display='none';
       op16.style.display='none';
       op17.style.display='none';
+      op18.style.display='none';
     //botones padre
       btn2.style.borderColor = "#B5B8BC";
       btn3.style.borderColor = "#B5B8BC";
@@ -427,12 +521,15 @@ function Reestablece(n){
       btn5.style.borderColor = "#B5B8BC";
       btn6.style.borderColor = "#B5B8BC";
       btn1.style.borderColor = "#B5B8BC";
+      btn7.style.borderColor = "#B5B8BC";
+
       btn2.style.color = "#B5B8BC";
       btn3.style.color = "#B5B8BC";
       btn4.style.color = "#B5B8BC";
       btn5.style.color = "#B5B8BC";
       btn6.style.color = "#B5B8BC";
       btn1.style.color = "#B5B8BC";
+      btn7.style.color = "#B5B8BC";
     //flechas
       arrowD2.style.display='none';
       arrowU2.style.display='none';
@@ -446,6 +543,8 @@ function Reestablece(n){
       arrowU6.style.display='none';
       arrowD1.style.display='none';
       arrowU1.style.display='none';
+      arrowD7.style.display='none';
+      arrowU7.style.display='none';
       //c2=c3=c4=c5=c6=c7=0;
     break;
   }
@@ -453,25 +552,28 @@ function Reestablece(n){
 function Oculta(n){
   switch(n){
     case 1:
-      c2=c3=c4=c5=c6=c7=0;
+      c2=c3=c4=c5=c6=c7=c8=0;
     break;
     case 2:
-      c1=c3=c4=c5=c6=c7=0;
+      c1=c3=c4=c5=c6=c7=c8=0;
     break;
     case 3:
-      c1=c2=c4=c5=c6=c7=0;
+      c1=c2=c4=c5=c6=c7=c8=0;
     break;
     case 4:
-      c1=c2=c3=c5=c6=c7=0;
+      c1=c2=c3=c5=c6=c7=c8=0;
     break;
     case 5:
-      c1=c2=c3=c4=c6=c7=0;
+      c1=c2=c3=c4=c6=c7=c8=0;
     break;
     case 6:
-      c1=c2=c3=c4=c5=c7=0;
+      c1=c2=c3=c4=c5=c7=c8=0;
     break;
     case 7:
-      c1=c2=c3=c4=c5=c6=0;
+      c1=c2=c3=c4=c5=c6=c8=0;
+    break;
+    case 8:
+      c1=c2=c3=c4=c5=c6=c7=0;
     break;
   }
 }

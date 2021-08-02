@@ -1,0 +1,1382 @@
+<DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel='stylesheet' href='css/hojaBase.css'/>
+    <link rel='stylesheet' href='css/cuerpoOpciones.css'/>
+    <link rel='stylesheet' href='css/agregaTPV.css'/>
+    <link rel='stylesheet' href='css/creaPlan.css'/>
+    <link rel='stylesheet' href='css/agregaVendedor.css'/>
+    <link rel='stylesheet' href='css/listarVendedor.css'/>
+    <link rel='stylesheet' href='css/radious.css'/>
+    <link rel='stylesheet' href='css/inputNumber.css'/>
+    <link rel='stylesheet' href='css/listarPlan.css'/>
+    <link rel='stylesheet' href='css/listarTPV.css'/>
+    <link rel='stylesheet' href='css/fichasCreadas.css'/>
+    <link rel='stylesheet' href='css/buscarFicha.css'/>
+    <link rel='stylesheet' href='css/fichasActivas.css'/>
+    <link rel='stylesheet' href='css/crearFicha.css'/>
+    <link rel='stylesheet' href='css/dashboard.css'/>
+    <link rel='stylesheet' href='css/reporte-deuda.css'/>
+    <link rel='stylesheet' href='css/reporte-ventas-abonos.css'/>
+    <link rel='stylesheet' href='css/reporte-ventas-planes.css'/>
+    <link rel='stylesheet' href='css/reporte-ventas-retiros.css'/>
+    <link rel='stylesheet' href='css/reporte-ventas-tpv.css'/>
+    <link rel='stylesheet' href='css/reporte-ventas-vendedor.css'/>
+    <!--
+
+    -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador</title>
+</head>
+<body>
+    <div class="contenedor" >
+
+        <div class="menu" id="mySidebar">
+          <a href="javascript:void(0)" id="closeMenu" class="closebtn" onclick="closeNav()" style="display: none; color:#fff; width:40px;height:40px;">&times;</a>
+             <!--
+           <div class="logo">
+            <img src="imagenes/logo.svg">
+           </div>
+           -->
+            <div class="botones">
+                <!-- Dashboard -->
+                <h3 style="color:#0DC88D; text-align: center;">Menu</h3>
+                <div class="btn padre"  id="Dashboard" onclick="mostrar_ocultar('Dashboard','1');">
+                    <img src="imagenes/dashboard.svg" ><h4>Dashboard</h4>
+                    <img src="imagenes/flecha.png " style="display: none;" id="fd1">
+                    <img src="imagenes/flecha2.png" id="fu1" style="display: none;">
+                </div>
+                    <div class="btn hijo" style="display: none;" id="opc1">
+                       <h4>Dashboard</h4>
+                    </div>
+                <!-- Fichas -->
+                <div class="btn padre"  id="Fichas" onclick="mostrar_ocultar('Fichas','6');">
+                    <img src="imagenes/ficha.svg" ><h4>Fichas</h4>
+                    <img src="imagenes/flecha.png" style="display: none;" id="fd6">
+                    <img src="imagenes/flecha2.png" id="fu6" style="display: none;">
+                </div>
+                    <div class="btn hijo" style="display:none;" id="opc14">
+                        <h4>Crear Ficha</h4>
+                    </div>
+                    <div class="btn hijo" style="display:none;" id="opc15">
+                        <h4>Fichas Creadas</h4>
+                    </div>
+                    <div class="btn hijo" style="display:none;" id="opc16">
+                        <h4>Buscar Fichas</h4>
+                    </div>
+                    <div class="btn hijo" style="display:none;" id="opc17">
+                        <h4>Fichas Activas</h4>
+                    </div>
+                <!-- Reportes -->
+                <div class="btn padre"  id="Reportes" onclick="mostrar_ocultar('Reportes','5');">
+                    <img src="imagenes/reporte.svg" ><h4>Reportes</h4>
+                    <img src="imagenes/flecha.png" style="display: none;" id="fd5">
+                    <img src="imagenes/flecha2.png" id="fu5" style="display: none;">
+                </div>
+                    <div class="btn hijo" style="display:none;" id="opc8">
+                       <h4>Deuda</h4>
+                    </div>
+                    <div class="btn hijo" style="display:none;" id="opc9">
+                        <h4>Ventas por Vendedor</h4>
+                    </div>
+                    <div class="btn hijo" style="display:none;" id="opc10">
+                        <h4>Ventas por TPV</h4>
+                    </div>
+                    <div class="btn hijo" style="display:none;" id="opc11">
+                        <h4>Ventas por Planes</h4>
+                    </div>
+                    <div class="btn hijo" style="display:none;" id="opc12">
+                        <h4>Retiros Realizados</h4>
+                    </div>
+                    <div class="btn hijo" style="display:none;" id="opc13">
+                        <h4>Abonos Realizados</h4>
+                    </div>
+                <!-- Vendedor -->
+                <div class="btn padre"  id="Vendedor" onclick="mostrar_ocultar('Vendedor','4');">
+                    <img src="imagenes/vendedor.svg" ><h4>Vendedor</h4>
+                    <img src="imagenes/flecha.png" style="display: none;" id="fd4">
+                    <img src="imagenes/flecha2.png" id="fu4" style="display: none;">
+                </div>
+                    <div class="btn hijo" style="display:none;" id="opc6">
+                        <h4>Agregar Vendedor</h4>
+                    </div>
+                    <div class="btn hijo" style="display:none;" id="opc7">
+                        <h4>Listar Vendedores</h4>
+                    </div>
+               <!-- Tpv -->
+                <div class="btn padre"  id="Tpv" onclick="mostrar_ocultar('Tpv','3');">
+                    <img src="imagenes/tpv.svg" ><h4>TPV</h4>
+                    <img src="imagenes/flecha.png" style="display: none;" id="fd3">
+                    <img src="imagenes/flecha2.png" id="fu3" style="display: none;">
+                </div>
+                    <div class="btn hijo" style="display:none;" id="opc4">
+                       <h4>Agregar TPV</h4>
+                    </div>
+                    <div class="btn hijo" style="display:none;" id="opc5">
+                        <h4>Listar TPV</h4>
+                    </div>
+                <!-- Planes -->
+                <div class="btn padre"  id="Planes" onclick="mostrar_ocultar('Planes','2');">
+                    <img src="imagenes/plan.svg" ><h4>Planes</h4>
+                    <img src="imagenes/flecha.png" style="display: none;" id="fd2">
+                    <img src="imagenes/flecha2.png" id="fu2" style="display: none;">
+                </div>
+                    <div class="btn hijo" id="opc2" style="display:none;">
+                        <h4>Agregar Plan</h4>
+                     </div>
+                     <div class="btn hijo" id="opc3" style="display:none;">
+                        <h4>Listar Planes</h4>
+                     </div>
+
+                 <!-- Servidorr -->
+                 <div class="btn padre"  id="Servidor" onclick="mostrar_ocultar('Servidor','7');">
+                    <img src="imagenes/servidor.svg" ><h4>Routers</h4>
+                    <img src="imagenes/flecha.png" style="display: none;" id="fd7">
+                    <img src="imagenes/flecha2.png" id="fu7" style="display: none;">
+                 </div>
+                    <div class="btn hijo" style="display:none;" id="opc18">
+                        <h4>Agregar router</h4>
+                    </div>
+                <!-- Datos empresa -->
+                 <div class="btn padre"  id="DatosEmpresa" onclick="mostrar_ocultar('DatosEmpresa','8');">
+                    <img src="imagenes/vendedor.svg" ><h4>Datos de la Empresa</h4>
+                    <img src="imagenes/flecha.png" style="display: none;" id="fd8">
+                    <img src="imagenes/flecha2.png" id="fu8" style="display: none;">
+                 </div>
+                    <div class="btn hijo" style="display:none;" id="opc19">
+                        <h4>Configuracion</h4>
+                    </div>
+            </div>
+        </div>
+        <!-------------------Menú de opciones --------------------------->
+        <div id="contenido">
+           <div class="main">
+                <button class="openbtn" onclick="openNav()" style="display: none;width: 70px; height: 50px;">&#9776; Menu</button>
+                <div style="margin-left: auto;">
+                    <img src="imagenes/vendedor.svg" width="50px" height="50px">
+                </div>
+                <a href="">cerrar session</a>
+
+                <div style="margin-left:10px;">
+                    <span style="display: flex; padding-top: 3px;flex-direction: column; ">Aaron Chavez</span>
+                    <span style="display: flex; padding-top: 3px;flex-direction: column; ">Administrador</span>
+                </div>
+            </div>
+             <!-------------------Dashboard--------------------------->
+            <div class="pagina" id="dashboard" >
+                <div class="cabecera">
+                    <img src="imagenes/dashboard.svg">
+                     <h1>Dashboard</h1>
+                 </div>
+                 <div class="formulario">
+                    <h5></h5>
+                    <div class="dashh">
+                        <div class="cards">
+                            <div class="card" style="background-color: #389af0;">
+                                <span class="card-icono"> <img src="imagenes/ficha.svg"></span>
+                                <span id="ActiveF" class="card-text">Fichas Activas: 0</span>
+                            </div>
+                            <div class="card"  style="background-color: #E67D21;">
+                                <span class="card-icono"> <img src="imagenes/ficha.svg"></span>
+                                <span id="AddesF"  class="card-text">Fichas Creadas Mes Actual: 0</span>
+
+                            </div>
+                            <div class="card" style="background-color: #8E44AD;">
+                                <span class="card-icono"> <img src="imagenes/ficha.svg"></span>
+                                <span id="TotalMes" class="card-text">Ventas Mes Actual $0</span>
+                            </div>
+                        </div>
+                        <div class="ventas-vendedores">
+                            <div class="head">
+                                <span class="icono-head"><img src="imagenes/plan.svg"></span>
+                                <span class="text-head">VENTAS VENDEDORES MES ACTUAL</span>
+                            </div>
+                            <div class="recaudado">
+                                <span class="subt">TOTAL RECAUDADO</span>
+                                <span id="TotalVendedor"class="pricee">$0.0</span>
+                            </div>
+
+                            <div class="scrollbar" id="style-2">
+                            </div>
+                        </div>
+                        <div class="top-planes">
+                            <canvas id="doughnut-chart1" width="40%" height="40%"></canvas>
+                        </div>
+                        <div class="top-tpv-mes">
+                            <canvas id="doughnut-chart2" width="40%" height="40%"></canvas>
+                        </div>
+                        <div class="last-sales">
+                          <div class="" style="overflow:auto; width:100%; height:100%;">
+                            <canvas id="bar-chart" ></canvas>
+                          </div>
+
+                        </div>
+                    </div>
+                 </div>
+            </div>
+
+        <!------------------- AGREGAR VENDEDOR --------------------------->
+            <div class="pagina" id="vendedorAdd" style="display: none;">
+                <div class="cabecera">
+                    <img src="imagenes/vendedor.svg">
+                     <h1 id="vendadd">Agregar Vendedor</h1>
+                 </div>
+                 <div class="formulario">
+                    <h5></h5>
+                    <form id="NuevoVendedor">
+                        <fieldset id="checksvend">
+                            <legend>Tipo De Vendedor</legend>
+                            <label>
+                                <input onclick="SaldoMostrar(1)" type="radio" name="Acumulativo" value="Acumulativo" checked>
+                                Prepago (Acumulativo)
+                            </label>
+                            <label>
+                                <input onclick="SaldoMostrar(2)" type="radio" name="Acumulativo" value="Saldo" >
+                                Postpago(Saldo)</label>
+                        </fieldset>
+                        <p>Nombre y apellidos del vendedor</p>
+                        <input type="text" id="vendedor" name="vendedor" placeholder="Nombre y apellidos" required pattern="[a-zA-Z][a-zA-Z ]*" title="El nombre solo puede contener letras">
+                        <p>Celular (Whatsapp)</p>
+                        <input type="text" id="vcelular" name="vcelular" placeholder="Celular" required pattern="[0-9]{9}" title="Ingresa un numero de 9 digitos">
+                        <table class="default" id="vigencia">
+                            <thead>
+                                <tr>
+                                    <th>Nombre de usuario </th>
+                                    <th>Contraseña</th>
+                                    <th>TPV</th>
+                                  </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+
+                                    <th><input type="text" id="vname" name="vname" placeholder="usuario" required pattern="[A-Za-z0-9]+"></th>
+                                    <th><input type="text" id="Pastword" name="Pastword" placeholder="Contraseña" required pattern="[a-z]{1,}.{7,}" title="Una Letra al principio seguido de cualquier caracter. Tamaño mínimo: 8."></th>
+                                    <th>
+                                        <select name="lugar" id="lugar">
+                                            <option value="volvo">lugar</option>
+                                        </select>
+                                    </th>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p id="pinicial" style="display: none;">Saldo Inicial</p>
+                        <input id="iinicial" style="display: none;" type="number" id="Saldo" value="0"name="Saldo" placeholder="Saldo" required>
+                        <p>Comision</p>
+                        <input type="number" id="Comision" value="0"name="Comision" placeholder="Comision" required>
+                        <!--
+                                <p>Confirmacion Al Crear Ficha</p>
+                        <select name="Confirmacion" id="Confirmacion1">
+                            <option value="1">Si</option>
+                            <option value="0">No</option>
+                        </select>
+                        -->
+
+
+
+                        <button id="nuevovend" type="submit">Crear Vendedor</button>
+                    </form>
+                 </div>
+            </div>
+        <!---------------- CREAR PLAN --------------------------->
+            <div class="pagina" id="planAdd" style="display: none;">
+                <div class="cabecera">
+                    <img src="imagenes/plan.svg">
+                     <h1 id="plaadd">Agregar Plan</h1>
+                 </div>
+                 <div class="formulario">
+                    <h5></h5>
+                    <form id="NuevoPlan">
+                        <fieldset id="checksplan">
+                            <legend>Tipo de Plan</legend>
+                            <label>
+                                <input id="Corrido"onclick="planMostrar(1)" type="radio" name="Plan" value="Corrido" checked>
+                                Tiempo Corrido
+                            </label>
+                            <label>
+                                <input id="Pausado"onclick="planMostrar(2)" type="radio" name="Plan" value="Pausado" >
+                                Tiempo Pausado
+                            </label>
+                            <label>
+                                <input id="Consumo"onclick="planMostrar(3)" type="radio" name="Plan" value="Consumo">
+                                Consumo
+                            </label>
+                            <label>
+                                <input id="Vigenciaa"onclick="planMostrar(4)" type="radio" name="Plan" value="Vigenciaa" >
+                                Consumo con vigencia
+                            </label>
+                            <label>
+                                <input id="Vigenciaa"onclick="planMostrar(5)" type="radio" name="Plan" value="Ilimitado" >
+                                Ilimitado
+                            </label>
+                        </fieldset>
+
+                        <p><b>Nombre del plan</b></p>
+                        <input type="text" id="nombre" name="nombre" placeholder="Nombre del plan" required>
+                        <div id="etime" style="display: none;">
+                        <p><b>Expira en(0d0h0m):</b></p>
+                        <input id="Expira" name="Expira"class="quantity-num" placeholder="Tiempo" min=0 type="text"  value="0m" required pattern="((3[0-1]|[0-2]?[0-9])d)?((2[0-3]|[0-1]?[0-9])h)?((5[0-9]|[0-4]?[0-9])m)?" title="Rango obligatorio 0d0h0m - 31d23h59m" />
+                        </div>
+                        <div id="dtime" style="display: block;">
+                        <p><b>Tiempo de duración(0d0h0m):</b></p>
+                        <input id="Dura" name="Dura"class="quantity-num" placeholder="Tiempo" min=0 type="text"  value="0m" required pattern="((3[0-1]|[0-2]?[0-9])d)?((2[0-3]|[0-1]?[0-9])h)?((5[0-9]|[0-4]?[0-9])m)?" title="Rango obligatorio 0d0h0m - 31d23h59m"/>
+                        </div>
+
+
+                         <div id="fast" >
+                            <p><b>Limites</b></p>
+                            <table class="default" id="velocidad">
+                                <tr>
+                                    <td class="color" style="width: 40% !important;">Subida</td>
+                                    <td style="width: 40% !important;">
+                                        <input id="Subida" name="Subida"width="120px "class="quantity-num" type="number"  value="0" required/>
+                                    </td>
+                                    <td style="width: 10% !important;" >
+                                      <select name="select" style="margin-left:0px !important;">
+                                        <option value="value1">so</option>
+                                        <option value="value1">spm</option>
+                                        <option value="value1">B</option>
+                                        <option value="value1">G</option>
+                                        <option value="value1">M</option>
+                                        <option value="value1">T</option>
+                                      </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="color" style="width: 33%;">Descarga</td>
+                                    <td style="width: 33%;">
+                                        <input id="Descarga" name="Descarga"width="120px "class="quantity-num" type="number"  value="0" required/>
+                                    </td>
+                                    <td style="width: 33%;">
+                                      <select name="select">
+                                        <option value="value1">so</option>
+                                        <option value="value1">spm</option>
+                                        <option value="value1">B</option>
+                                        <option value="value1">G</option>
+                                        <option value="value1">M</option>
+                                        <option value="value1">T</option>
+                                      </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="color" style="width: 33%;">Transferencia</td>
+                                    <td style="width: 33%;">
+                                      <input id="Transferencia" name="Transferencia" width="120px"class="quantity-num" type="number"  value="0" required/>
+                                    </td>
+                                    <td style="width: 33%;">
+                                      <select name="select">
+                                        <option value="value1">so</option>
+                                        <option value="value1">spm</option>
+                                        <option value="value1">B</option>
+                                        <option value="value1">G</option>
+                                        <option value="value1">M</option>
+                                        <option value="value1">T</option>
+                                      </select>
+                                    </td>
+                                </tr>
+                            </table>
+                         </div>
+
+                         <div id="fast2">
+                            <p><b>Limites de tarifa</b></p>
+                            <table class="default" id="velocidad">
+                                <tr>
+                                    <td class="color" style="width: 40%!important;">Rate limit Rx</td>
+                                    <td style="width: 40%!important;">
+                                        <input id="limitrx" name="limitrx"width="120px "class="quantity-num" type="number"  value="0" required/>
+                                    </td>
+                                    <td style="width: 10%!important;">
+                                      <select name="select">
+                                        <option value="value1">so</option>
+                                        <option value="value1">spm</option>
+                                        <option value="value1">B</option>
+                                        <option value="value1">G</option>
+                                        <option value="value1">M</option>
+                                        <option value="value1">T</option>
+                                      </select>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="color" style="width: 33%;"> Min rate Rx</td>
+                                    <td style="width: 33%;">
+                                        <input id="minlimitrx" name="minlimitrx"width="120px "class="quantity-num" type="number"  value="0" required/>
+                                    </td>
+                                    <td style="width: 33%;">
+                                      <select name="select">
+                                        <option value="value1">so</option>
+                                        <option value="value1">spm</option>
+                                        <option value="value1">B</option>
+                                        <option value="value1">G</option>
+                                        <option value="value1">M</option>
+                                        <option value="value1">T</option>
+                                      </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="color" style="width: 33%;">Rate limit Tx</td>
+                                    <td style="width: 33%;">
+                                      <input id="limittx" name="limittx"width="120px "class="quantity-num" type="number"  value="0" required/>
+                                    </td>
+                                    <td style="width: 33%;">
+                                      <select name="select">
+                                        <option value="value1">so</option>
+                                        <option value="value1">spm</option>
+                                        <option value="value1">B</option>
+                                        <option value="value1">G</option>
+                                        <option value="value1">M</option>
+                                        <option value="value1">T</option>
+                                      </select>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td class="color" style="width: 33%;">Min rate Tx</td>
+                                    <td style="width: 33%;">
+                                        <input id="minlimittx" name="minlimittx"width="120px "class="quantity-num" type="number"  value="0" required/>
+                                    </td>
+                                    <td style="width: 33%;">
+                                      <select name="select">
+                                        <option value="value1">so</option>
+                                        <option value="value1">spm</option>
+                                        <option value="value1">B</option>
+                                        <option value="value1">G</option>
+                                        <option value="value1">M</option>
+                                        <option value="value1">T</option>
+                                      </select>
+                                    </td>
+                                </tr>
+
+                            </table>
+                         </div>
+                         <p><b>Uso Compartido</b></p>
+
+
+                        <div id="vigencia">
+                        <div id="contenedor-numbers">
+                            <div id="cajanumbers2">
+                                <p>Usuarios </p>
+                                <input id="shared" name="shared"placeholder="Usuarios"class="quantity-num" type="number"  value="1" min=1 required/>
+                            </div>
+                            <div id="cajanumbers1">
+                                <div>
+                                    <button id="sumausers" class="quant"> + </button>
+                                </div>
+                                <div>
+                                    <button id="restausers" class="quant"> - </button>
+                                </div>
+
+                            </div>
+                        </div>
+                        </div>
+                        <!--
+
+                             <p><b>Desconectar en (Esto no se en donde se indica)</b></p>
+                        <input type="text" id="Desconectar" name="Desconectar" placeholder="Tiempo">
+                        -->
+
+
+                        <button id="edplan" type="submit">Crear Plan</button>
+                    </form>
+                 </div>
+            </div>
+                <!---------------- LISTAR PLAN --------------------------->
+        <div class="pagina" id="planList" style="display: none;">
+            <div class="cabecera">
+                <img src="imagenes/plan.svg">
+                 <h1>Lista De Planes</h1>
+             </div>
+             <div class="formulario">
+                <h5></h5>
+                <form >
+                    <label for="site-search">Buscar</label>
+                    <input type="search" name="q" aria-label="Search through site content">
+                    <div class="hscroll">
+                    <table class="default"  style="margin-top: 60px;">
+                        <tr>
+                          <td>
+                             <table class="default">
+                               <tr>
+                                <th style="width:32% !important;">Nombre</th>
+
+                                <th style="width:11% !important;">Duracion</th>
+
+                                <th style="width:11% !important;">Vigencia</th>
+                                <th style="width:11% !important;">Velocidad</th>
+
+                                <th style="width:11% !important;">Tipo de plan</th>
+                                <th style="width:12% !important;">Usuarios compartidos</th>
+                                <th style="width:12% !important;">Accion</th>
+                               </tr>
+                             </table>
+                          </td>
+                        </tr>
+                        <tr>
+                         <td>
+                            <div class="scroll">
+                                <table  id="ListaPlanes" class="default">
+
+                                </table>
+                            </div>
+                         </td>
+                        </tr>
+                  </table>
+                  </div>
+                </form>
+             </div>
+        </div>
+        <!---------------- AGREGAR TPV --------------------------->
+             <div class="pagina" id="tpvAdd" style="display: none;">
+                <div class="cabecera">
+                    <img src="imagenes/tpv.svg">
+                     <h1 id="tpvnew">Agregar TPV</h1>
+                 </div>
+                 <div class="formulario">
+                    <h5></h5>
+                    <form id="NuevoTPV">
+                        <p>Nombre TPV</p>
+                        <input type="text" id="TPV" name="TPV" placeholder="Nombre TPV" required pattern=".+" title="Ingresa un nombre">
+                        <div style="margin-top: 50px; text-align: center; width: 470px; height: 35px; background-color: #BCDBDF; border-radius: 4px;">
+                            <p style="padding-top: 8px;">Marque El Plan y Coloque Su Precio Para Activarlo En Este TPV</p>
+                        </div>
+                        <div class="hscroll" style="overflow-x:auto !important;">
+                        <table class="default"  style="margin-top: 10px;">
+                            <tr>
+                              <td>
+                                 <table class="default">
+                                   <tr>
+                                        <th style="width: 40% !important;">Agregar Plan</th>
+                                        <th style="width: 30% !important; text-align: center !important;">Tipo Plan</th>
+                                        <th style="width: 30% !important;">Precio</th>
+                                   </tr>
+                                 </table>
+                              </td>
+                            </tr>
+                            <tr>
+                             <td >
+                                <div class="scroll">
+                                    <table id="ListaOpcionesPlan" class="default">
+
+                                    </table>
+                                </div>
+                             </td>
+                            </tr>
+                      </table>
+                      </div>
+                        <button id="CrearTPV"type="submit">Crear TPV</button>
+                    </form>
+                 </div>
+            </div>
+        <!---------------- LISTAR VENDEDORES --------------------------->
+            <div class="pagina" id="vendedorList" style="display: none;">
+                <div class="cabecera">
+                    <img src="imagenes/vendedor.svg">
+                     <h1>Lista De Vendedores</h1>
+                 </div>
+                 <div class="formulario">
+                    <h5></h5>
+                    <form>
+                        <label id="busvend"for="site-search">buscar</label>
+                        <input type="search" id="buscatpv"aria-label="Search through site content">
+                        <div class="hscroll" style="overflow-y:auto !important;">
+                        <table class="default"  style="margin-top: 60px;">
+                            <tr>
+                              <td>
+                                 <table class="default">
+                                   <tr>
+                                        <th style="width: 28% !important;">Nombre</th>
+                                        <th style="width: 10% !important;">Tipo</th>
+                                        <th style="width: 18% !important;">TPV</th>
+                                        <th style="width: 12% !important;">Celular</th>
+
+                                        <th style="width: 8% !important;">Saldo</th>
+                                        <th style="width: 24% !important;">Acción</th>
+                                   </tr>
+                                 </table>
+                              </td>
+                            </tr>
+                            <tr>
+                             <td>
+                                <div class="scroll">
+                                    <table id="ListarVendedores"class="default">
+                                        <tr>
+                                            <td style="width: 28%;">xd</td>
+                                            <td style="width: 10%;">Postpago(Acumulativo)</td>
+                                            <td style="width: 18%;">Oaxaca</td>
+                                            <td style="width: 12%;">436548769</td>
+                                            <td style="width: 8%;">$45</td>
+                                            <td style="width: 24%;">
+                                                <button style="margin-left: 4px;">Retirar</button>
+                                                <button >Editar</button>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                             </td>
+                            </tr>
+                          </table>
+                      </div>
+                    </form>
+
+                 </div>
+            </div>
+
+         <!---------------- LISTAR TPV --------------------------->
+         <div class="pagina" id="tpvList" style="display: none;">
+            <div class="cabecera">
+                <img src="imagenes/tpv.svg">
+                 <h1>Lista TPV Creados</h1>
+             </div>
+             <div class="formulario">
+                <h5></h5>
+                <form >
+                    <label for="site-search">buscar</label>
+                    <input type="search" name="q" aria-label="Search through site content">
+                    <div class="hscroll">
+                    <table class="default"  style="margin-top: 60px;">
+                        <tr>
+                          <td>
+                             <table class="default">
+                               <tr>
+                                    <th style="width: 33%;">Nombre</th>
+                                    <th style="width: 33%;">Numero De Planes Asociados</th>
+                                    <th style="width: 33%;">Accion</th>
+                               </tr>
+                             </table>
+                          </td>
+                        </tr>
+                        <tr>
+                         <td>
+                            <div class="scroll">
+                                <table id="listaTPV"class="default">
+                                    <tr>
+                                        <td style="width: 33%;">xd</td>
+                                        <td style="width: 33%; text-align: center;">1</td>
+                                        <td style="width: 33%;"><button class="edit">Editar</button></td>
+                                    </tr>
+                                </table>
+                            </div>
+                         </td>
+                        </tr>
+                      </table>
+                    </div>
+                </form>
+             </div>
+        </div>
+        <!---------------- CREAR FICHA --------------------------->
+        <div class="pagina" id="fichaAdd" style="display: none;">
+            <div class="cabecera">
+                <img src="imagenes/ficha.svg">
+                 <h1>CREAR FICHA</h1>
+             </div>
+             <div class="formulario">
+                <h5></h5>
+                <form id="useradd" enctype="multipart/form-data">
+                    <!--Aqui revisa para que se muestrs como en-->
+                   <div>
+                    <fieldset id="checksficha" name="checksficha">
+                        <legend>Tipo de ficha</legend>
+                        <label>
+                            <input id="normal"onclick="FichaMostrar(1)" type="radio" name="tficha" value="normal" checked>
+                            Generar
+                        </label>
+                        <label>
+                            <input id="personalizada"onclick="FichaMostrar(2)" type="radio" name="tficha" value="personalizada" >
+                            Personalizada
+                        </label>
+
+
+                    </fieldset>
+                    </div>
+                    <p>Vendedor</p>
+
+                    <select name="selectSale" id="selectSale">
+                        <option value="">vendedor</option>
+                    </select>
+                    <p>Plan</p>
+                    <select name="selecPlan" id="selecPlan">
+                        <option value="plan">plan</option>
+                    </select>
+
+                    <div id="fiper" style="display: none;">
+                        <p><b>Usuario</b></p>
+                        <input type="text" id="fiuser" name="fiuser" placeholder="Usuario" required pattern="[A-Za-z0-9]+">
+                        <p><b>Contraseña</b></p>
+                        <input type="text" id="fipass" name="fipass" placeholder="Password"  required pattern="[a-z]{1,}.{7,}" title="Una Letra al principio seguido de cualquier caracter. Tamaño mínimo: 8.">
+                    </div>
+                    <div id="finorm" style="display: block;">
+
+
+                    <p>Random De Ficha</p>
+                    <select name="selectRandom" id="selectRandom">
+                        <option value="1">Mayusculas</option>
+                        <option value="2">Minusculas </option>
+                        <option value="3">Numeros</option>
+                        <option value="4">Mayusculas y minusculas</option>
+                        <option value="5">Mayusculas y numeros</option>
+                        <option value="6">Minusculas y numeros</option>
+                        <option value="7">Mayusculas, minusculas y numeros</option>
+                    </select>
+
+                    <div>
+                    <div id="vigencia" style="width: 160px;">
+                         <div id="contenedor-numbers">
+                            <div id="cajanumbers2">
+                                <p>Longitud</p>
+                                <input id="users" min="3" max="8" name="users"class="quantity-num" placeholder="Longitud"  type="number"  value="3" />
+                            </div>
+                            <div id="cajanumbers1">
+                                <div>
+                                    <button id="sumau" class="quant"> + </button>
+                                </div>
+                                <div>
+
+                                    <button id="restau" class="quant"> - </button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div id="vigencia" style="width: 160px;">
+                        <div id="contenedor-numbers">
+                           <div id="cajanumbers2">
+                               <p>Cantidad</p>
+                               <input id="totalf" name="cantidad"class="quantity-num" placeholder="Dias" min=0 type="number"  value="0" />
+                           </div>
+                           <div id="cajanumbers1">
+                               <div>
+                                   <button id="sumat" class="quant"> + </button>
+                               </div>
+                               <div>
+
+                                   <button id="restat" class="quant"> - </button>
+                               </div>
+
+                           </div>
+                       </div>
+                   </div>
+                    </div>
+                   <!--<input id="imagen" name="imagen"style="margin-top: 30px;" type="file" >
+                    -->
+                </div>
+                <button type="submit">Crear Ficha</button>
+                </form>
+             </div>
+        </div>
+        <!---------------- FICHAS CREADAS --------------------------->
+        <div class="pagina" id="fichasCreadas"style="display: none;">
+            <div class="cabecera">
+                <img src="imagenes/ficha.svg">
+                 <h1>FICHAS CREADAS</h1>
+             </div>
+             <div class="formulario">
+                <h5></h5>
+                <form>
+
+                    <div class="contenedorDate">
+                         <!--
+                        <div class="date">Desde
+                          <input type="date" name="dateofbirth">
+                        </div>
+                        <div class="date">Hasta
+                          <input type="date" name="dateofbirth">
+                        </div>
+                        <button style="margin-left: 80px; margin-top: 20px;">Generar Reporte</button>
+
+                    -->
+                    </div>
+                    <div class="hscroll">
+                        <table class="default" style="margin-top: 60px;" >
+                            <tr>
+                              <td>
+                                 <table class="default">
+                                   <tr>
+                                        <th style="width:10% !important;">Fecha</th>
+                                        <th style="width:10% !important;">Hora</th>
+                                        <th style="width:20% !important;">Vendedor</th>
+                                        <th style="width:10% !important;">Plan</th>
+                                        <th style="width:20% !important;">Total Fichas Creadas</th>
+                                        <th style="width:30% !important;">Accion</th>
+                                   </tr>
+                                 </table>
+                              </td>
+                            </tr>
+                            <tr>
+                             <td>
+                                <div class="scroll">
+                                    <table class="default">
+                                        <tr>
+                                            <td>xd</td>
+                                            <td>Acumulativo</td>
+                                            <td>Oaxaca</td>
+                                            <td>436548769</td>
+                                            <td>$45</td>
+                                            <td>
+                                                <button style="margin-left: 4px;">Ver</button>
+                                                <button >Eliminar</button>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                </div>
+                             </td>
+                            </tr>
+                      </table>
+                      </div>
+                </form>
+             </div>
+        </div>
+        <!---------------- BUSCAR FICHA --------------------------->
+        <div class="pagina" id="buscarFichas"style="display: none;">
+            <div class="cabecera">
+                <img src="imagenes/buscar.svg">
+                 <h1>BUSCAR FICHAS</h1>
+             </div>
+             <div class="formulario">
+                <h5></h5>
+                <form id="FichaSearch">
+                    <label for="site-search">buscar</label>
+                    <input id="buscfi"type="search" aria-label="Search through site content">
+                </form>
+             </div>
+        </div>
+        <!---------------- FICHAS ACTIVAS --------------------------->
+        <div class="pagina" id="fichasActivas"style="display: none;">
+            <div class="cabecera">
+                <img src="imagenes/ficha.svg">
+                 <h1>FICHAS ACTIVAS</h1>
+             </div>
+             <div class="formulario">
+                <h5></h5>
+                <form>
+                    <label for="site-search">buscar</label>
+                    <input type="search" aria-label="Search through site content">
+                    <div class="hscroll">
+                    <table class="default"  style="margin-top: 60px;">
+                        <tr>
+                          <td>
+                             <table class="default">
+                               <tr>
+                                    <th style="width: 25%;">Ficha</th>
+                                    <th style="width: 25%;">Host-ip</th>
+                                    <th style="width: 25%;">Router</th>
+                                    <th style="width: 25%;">Accion</th>
+                               </tr>
+                             </table>
+                          </td>
+                        </tr>
+                        <tr >
+                         <td>
+                            <div class="scroll">
+                                <table id="activeusers" class="default">
+                                    <tr>
+                                        <td>xd</td>
+                                        <td style="width: 20%;text-align: center;">Acumulativo</td>
+
+                                    </tr>
+                                </table>
+                            </div>
+                         </td>
+                        </tr>
+                  </table>
+                  </div>
+                </form>
+             </div>
+        </div>
+        <!---------------- Agregar router --------------------------->
+            <div class="pagina" id="confServidor"style="display: none;">
+                <div class="cabecera">
+                    <img src="imagenes/servidor.svg">
+                     <h1>Agregar router</h1>
+                 </div>
+                 <div class="formulario">
+                    <h5></h5>
+                    <form id="NuevoRouter">
+                        <p>Nombre Mikrotik</p>
+                        <input id="Mikrotik"  name="Mikrotik" width="120px "class="quantity-num" type="text"  placeholder="Nombre Mikrotik" required/>
+
+                        <p>Nombre Del Propetario</p>
+                        <p><b>admin</b></p>
+
+                        <p>Shared Secret</p>
+
+                        <input id="Secret"  name="Secret" width="120px "class="quantity-num" type="text"   placeholder="Shared Secret" required/>
+
+
+                        <p >Direcci&oacute;n IP</p>
+                        <input type="text" id="IP"  width="120px "class="quantity-num" name="IP" placeholder="Direcci&oacute;n  ip" required pattern="^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$" title="Rango solicitado 000.000.000 - 255.255.255">
+
+
+                        <button type="submit">agregar</button>
+                    </form>
+                 </div>
+            </div>
+            <!---------------- datos de la empresa --------------------------->
+            <div class="pagina" id="dataEmpresa"style="display: none;">
+                <div class="cabecera">
+                    <img src="imagenes/vendedor.svg">
+                     <h1>Datos de la Empresa</h1>
+                 </div>
+                 <div class="formulario">
+                    <h5></h5>
+                    <form id="">
+                        <div class="" style="display:flex; flex-wrap: wrap; justify-content: space-between; width:100%; ">
+                          <div class="" style="width:350px;">
+                            <p >Nombre de la Empresa</p>
+                            <input  type="text" id="nombre-empresa" name="nombre" placeholder="Nombre de la Empresa" required>
+                          </div>
+                          <div class="" style="width:350px;">
+                            <p>Nombre del Responsable</p>
+                            <input  type="text" id="nombre-responsable" name="nombre-responsable" placeholder="Nombre del Responsable" required>
+                          </div>
+                        </div>
+
+                        <p>Mi Sistema</p>
+                        <input type="text" id="mi-sistema" name="sistema" placeholder="Mi Sistema" required>
+                        <p>Correo</p>
+                        <input type="text" id="correo-empresa" name="correo" placeholder="Correo" required pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$">
+                        <p>Cel(WhatsApp)</p>
+                        <input type="text" id="cel-empresa" name="cel" placeholder="Cel(WhatsApp)" required>
+                        <p>Datos Fiscales</p>
+                        <input type="text" id="datos-fiscales" name="ficales" placeholder="Datos Fiscales" required>
+                        <p>LOGO</p>
+                        <input type="file" id="logo-empresa" name="logo" accept="image/png, image/jpeg">
+                        <button type="submit">Guardar</button>
+                    </form>
+                 </div>
+            </div>
+
+<!---------------------- Reporte por vendedor--------------------------->
+            <div class="pagina report" id="reporte-deuda"style="display: none;">
+                <div class="cabecera">
+                    <img src="imagenes/reporte.svg">
+                     <h1>Reporte De Deuda</h1>
+                 </div>
+                 <div class="formulario">
+                    <h5></h5>
+
+                 </div>
+            </div>
+            <!---------------------- Reporte ventas por vendedor------------------------->
+            <div class="pagina report" id="reporte-vendedor"style="display: none;">
+                <div class="cabecera">
+                    <img src="imagenes/reporte.svg">
+                     <h1>Venta Por Vendedor</h1>
+                 </div>
+                 <div class="formulario">
+                    <h5></h5>
+                      <div class="contenedorDate">
+                        <div class="date">Desde
+                          <input type="date" name="dateofbirth">
+                        </div>
+                        <div class="date">Hasta
+                          <input type="date" name="dateofbirth">
+                        </div>
+                        <div class="date">
+                          <select name="select">
+                            <option selected> Vendedor</option>
+                            <option value="value1">Value 1</option>
+                            <option value="value2">Value 2</option>
+                          </select>
+                        </div>
+                        <button style="margin-left: 80px; margin-top: 20px;">Generar Reporte</button>
+                      </div>
+                      <div class="hscroll">
+                      <table class="default"  style="margin-top: 60px;">
+                          <tr>
+                            <td>
+                               <table class="default">
+                                 <tr>
+                                      <th style="width:25% !important;">Vendedor</th>
+                                      <th style="width:25% !important;">Plan</th>
+                                      <th style="width:25% !important;">Fichas</th>
+                                      <th style="width:25% !important;">Monto</th>
+                                 </tr>
+                               </table>
+                            </td>
+                          </tr>
+                          <tr>
+                           <td>
+                              <div class="scroll">
+                                  <table class="default">
+                                      <tr>
+                                          <td>Aaron Chavez</td>
+                                          <td>PLAN 1 DIA</td>
+                                          <td>1</td>
+                                          <td>$9.60</td>
+                                      </tr>
+                                  </table>
+                              </div>
+                           </td>
+                        </tr>
+                        <tr>
+                          <td>
+                             <table class="default">
+                               <tr>
+                                    <th>Total Ventas $</th>
+                               </tr>
+                             </table>
+                          </td>
+                        </tr>
+                      </table>
+                      </div>
+                      <div class="reporte">
+                        <canvas id="gpastel-vendedor" width="40%" height="40%"></canvas>
+                      </div>
+                 </div>
+            </div>
+            <!---------------------- Reporte ventas por tpv------------------------->
+            <div class="pagina report" id="reporte-tpv"style="display: none;">
+                <div class="cabecera">
+                    <img src="imagenes/reporte.svg">
+                     <h1>Venta Por TPV</h1>
+                 </div>
+                 <div class="formulario">
+                    <h5></h5>
+                      <div class="contenedorDate">
+                        <div class="date">Desde
+                          <input type="date" name="dateofbirth">
+                        </div>
+                        <div class="date">Hasta
+                          <input type="date" name="dateofbirth">
+                        </div>
+                        <div class="date">
+                          <select name="select">
+                            <option selected> Vendedor</option>
+                            <option value="value1">Value 1</option>
+                            <option value="value2">Value 2</option>
+                          </select>
+                        </div>
+                        <button style="margin-left: 80px; margin-top: 20px;">Generar Reporte</button>
+                      </div>
+                      <div class="hscroll">
+                      <table class="default"  style="margin-top: 60px;">
+                          <tr>
+                            <td>
+                               <table class="default">
+                                 <tr>
+                                      <th style="width:25% !important;">Vendedor</th>
+                                      <th style="width:25% !important;">Plan</th>
+                                      <th style="width:25% !important;">Fichas</th>
+                                      <th style="width:25% !important;">Monto</th>
+                                 </tr>
+                               </table>
+                            </td>
+                          </tr>
+                          <tr>
+                           <td>
+                              <div class="scroll">
+                                  <table class="default">
+                                      <tr>
+                                          <td>Aaron Chavez</td>
+                                          <td>PLAN 1 DIA</td>
+                                          <td>1</td>
+                                          <td>$9.60</td>
+                                      </tr>
+                                  </table>
+                              </div>
+                           </td>
+                        </tr>
+                        <tr>
+                          <td>
+                             <table class="default">
+                               <tr>
+                                    <th>Total Ventas $</th>
+                               </tr>
+                             </table>
+                          </td>
+                        </tr>
+                      </table>
+                      </div>
+                      <div class="reporte">
+                        <canvas id="gpastel-tpv" width="40%" height="40%"></canvas>
+                      </div>
+                 </div>
+            </div>
+            <!---------------------- Ventas por planes------------------------->
+            <div class="pagina report" id="reporte-ventas-planes"style="display: none;">
+                <div class="cabecera">
+                    <img src="imagenes/reporte.svg">
+                     <h1>Venta Por Planes</h1>
+                 </div>
+                 <div class="formulario">
+                    <h5></h5>
+                      <div class="contenedorDate">
+                        <div class="date">Desde
+                          <input type="date" name="dateofbirth">
+                        </div>
+                        <div class="date">Hasta
+                          <input type="date" name="dateofbirth">
+                        </div>
+                        <div class="date">
+                          <select name="select">
+                            <option selected> Vendedor</option>
+                            <option value="value1">Value 1</option>
+                            <option value="value2">Value 2</option>
+                          </select>
+                        </div>
+                        <button style="margin-left: 80px; margin-top: 20px;">Generar Reporte</button>
+                      </div>
+                      <div class="hscroll">
+                      <table class="default"  style="margin-top: 60px;">
+                          <tr>
+                            <td>
+                               <table class="default">
+                                 <tr>
+                                      <th style="width:33% !important;">Plan</th>
+                                      <th style="width:33% !important;">Fichas</th>
+                                      <th style="width:33% !important;">Monto</th>
+                                 </tr>
+                               </table>
+                            </td>
+                          </tr>
+                          <tr>
+                           <td>
+                              <div class="scroll">
+                                  <table class="default">
+                                      <tr>
+                                          <td>PLAN 1 DIA</td>
+                                          <td>1</td>
+                                          <td>$9.60</td>
+                                      </tr>
+                                  </table>
+                              </div>
+                           </td>
+                        </tr>
+                        <tr>
+                          <td>
+                             <table class="default">
+                               <tr>
+                                    <th>Total Ventas $</th>
+                               </tr>
+                             </table>
+                          </td>
+                        </tr>
+                      </table>
+                      </div>
+                      <div class="reporte">
+                        <canvas id="gpastel-planes" width="40%" height="40%"></canvas>
+                      </div>
+                 </div>
+            </div>
+            <!---------------------- Reporte retiros realizados------------------------->
+            <div class="pagina report" id="reporte-retiros"style="display: none;">
+                <div class="cabecera">
+                    <img src="imagenes/reporte.svg">
+                     <h1>Retiros Realizados</h1>
+                 </div>
+                 <div class="formulario">
+                    <h5></h5>
+                      <div class="contenedorDate">
+                        <div class="date">Desde
+                          <input type="date" name="dateofbirth">
+                        </div>
+                        <div class="date">Hasta
+                          <input type="date" name="dateofbirth">
+                        </div>
+                        <div class="date">
+                          <select name="select">
+                            <option selected> Vendedor</option>
+                            <option value="value1">Value 1</option>
+                            <option value="value2">Value 2</option>
+                          </select>
+                        </div>
+                        <button style="margin-left: 80px; margin-top: 20px;">Generar Reporte</button>
+                      </div>
+                      <div class="hscroll">
+                      <table class="default"  style="margin-top: 60px;">
+                          <tr>
+                            <td>
+                               <table class="default">
+                                 <tr>
+                                      <th style="width:25% !important;">Fecha</th>
+                                      <th style="width:25% !important;">Hora</th>
+                                      <th style="width:25% !important;">Vendedor</th>
+                                      <th style="width:25% !important;">Monto</th>
+                                 </tr>
+                               </table>
+                            </td>
+                          </tr>
+                          <tr>
+                           <td>
+                              <div class="scroll">
+                                  <table class="default">
+                                      <tr>
+                                          <td>2020-06-16</td>
+                                          <td>09:43:53pm</td>
+                                          <td>Aaron Chavez</td>
+                                          <td>$9.60</td>
+                                      </tr>
+                                      <tr>
+                                          <td></td>
+                                          <td></td>
+                                          <td>Numero De Tetiros</td>
+                                          <td>1</td>
+                                      </tr>
+                                      <tr>
+                                          <td></td>
+                                          <td></td>
+                                          <td>Total Retirado</td>
+                                          <td>$9.60</td>
+                                      </tr>
+                                  </table>
+                              </div>
+                           </td>
+                        </tr>
+                      </table>
+                      </div>
+                 </div>
+            </div>
+            <!---------------------- Reporte abonos realizados------------------------->
+            <div class="pagina report" id="reporte-abonos"style="display: none;">
+                <div class="cabecera">
+                    <img src="imagenes/reporte.svg">
+                     <h1>Abonos Realizados</h1>
+                 </div>
+                 <div class="formulario">
+                    <h5></h5>
+                      <div class="contenedorDate">
+                        <div class="date">Desde
+                          <input type="date" name="dateofbirth">
+                        </div>
+                        <div class="date">Hasta
+                          <input type="date" name="dateofbirth">
+                        </div>
+                        <div class="date">
+                          <select name="select">
+                            <option selected> Vendedor</option>
+                            <option value="value1">Value 1</option>
+                            <option value="value2">Value 2</option>
+                          </select>
+                        </div>
+                        <button style="margin-left: 80px; margin-top: 20px;">Generar Reporte</button>
+                      </div>
+                      <div class="hscroll">
+                        <table class="default"  style="margin-top: 60px;">
+                            <tr>
+                              <td>
+                                 <table class="default">
+                                   <tr>
+                                        <th style="width:25% !important;">Fecha</th>
+                                        <th style="width:25% !important;">Hora</th>
+                                        <th style="width:25% !important;">Vendedor</th>
+                                        <th style="width:25% !important;">Monto</th>
+                                   </tr>
+                                 </table>
+                              </td>
+                            </tr>
+                            <tr>
+                             <td>
+                                <div class="scroll">
+                                    <table class="default">
+                                        <tr>
+                                            <td>2020-06-16</td>
+                                            <td>09:43:53pm</td>
+                                            <td>Aaron Chavez</td>
+                                            <td>$9.60</td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td>Numero De Tetiros</td>
+                                            <td>1</td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td>Total Retirado</td>
+                                            <td>$9.60</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                             </td>
+                          </tr>
+                        </table>
+                      </div>
+                      <div class="reporte">
+                        <canvas id="gpastel-abonos" width="40%" height="40%"></canvas>
+                      </div>
+                 </div>
+            </div>
+
+
+        </div>
+      </div>
+      <script>
+
+      //////////////////////////////////
+        var coloresg1 = [];
+
+        function generaColores(n){
+            let color= [];
+            for(i=0;i<n;i++)
+                color.push(colorHEX());
+            return color;
+        }
+        function generarLetra(){
+            var letras = ["a","b","c","d","e","f","0","1","2","3","4","5","6","7","8","9"];
+            var numero = (Math.random()*15).toFixed(0);
+            return letras[numero];
+        }
+        function colorHEX(){
+            var coolor = "";
+            for(var i=0;i<6;i++){
+              coolor = coolor + generarLetra() ;
+            }
+            return "#" + coolor;
+        }
+        coloresg1=generaColores(6);
+
+        new Chart(document.getElementById("gpastel-vendedor"), {
+          type: 'doughnut',
+          data: {
+              labels: ["Plan 1", "Plan 2", "Plan 3","Plan 1", "Plan 2", "Plan 3"],
+              datasets: [
+                      {
+                      label: "Population (millions)",
+
+                      backgroundColor: coloresg1,////////////////////solo asignas el arreglo
+                      data: [2478,784,433,2478,784,43]
+                      }
+              ]
+          },
+          options: {
+              title: {
+                  display: true,
+                  text: 'Reporte'
+              },
+              plugins: {
+                  colorschemes: {
+                    scheme: 'brewer.Paired12'
+
+                  }
+
+                }
+          }
+        });
+      </script>
+      <script src="funcionesAdmin/collapse-screen.js"></script>
+      <script src="funcionesAdmin/jquery.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-colorschemes"></script>
+      <script src="http://momentjs.com/downloads/moment.min.js"></script>
+      <script src="funcionesAdmin/Generales.js"></script>
+      <script src="funcionesAdmin/despliegoBotonesLeft.js"></script>
+      <script src="funcionesAdmin/manejoMouseAdmin.js"></script>
+      <script src="funcionesAdmin/clickOpcionesAdmin.js"></script>
+      <script src="funcionesAdmin/vendedor.js"></script>
+      <script src="funcionesAdmin/inputNumbers.js"></script>
+      <script src="funcionesAdmin/ActualizaDashboard.js"></script>
+     <!--
+     -->
+      <script src="funcionesAdmin/AgregarVendedor.js"> </script>
+      <script src="funcionesAdmin/GenerarPdf.js"> </script>
+      <script src="funcionesAdmin/AgregarRouter.js"> </script>
+      <script src="funcionesAdmin/CrearPlan.js"> </script>
+      <script src="funcionesAdmin/NuevoTPV.js"> </script>
+      <script src="funcionesAdmin/AgregarUsuarios.js"> </script>
+    </body>
+</html>

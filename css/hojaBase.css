@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
 
 *{
-    font-family: 'Open Sans', sans-serif;;  
+    font-family: 'Open Sans', sans-serif;;
 }
 :root {
     --fondoMenu: #1D2425;
@@ -18,22 +18,31 @@ body {
     margin:0;
     padding:0
   }
-  
+
 .contenedor{
     display:inline-block;
     width: 100%;
     height: 100%;
  }
+ .main{
+    display: flex;
+    height: 60px;
+    width: 100%;
+    margin: auto;
+    background-color: #EAF0F0;
+}
  .menu{
     position: fixed;
-    width: 19%;
     height: 1000px;
     float: left;
     background-color: var(--fondoMenu);
     font-family: arial;
+    width: 19% !important;
 }
+
+
 #contenido{
-    width: 81%;
+    width: 81% !important;
     height: 2200px;
     float:right;
     background-color: var(--fondoContenido);
@@ -101,39 +110,72 @@ h4{
 button{
     cursor: pointer;
 }
-@media screen and (max-width: 1125px)   {
-    .menu{
-        width:27%;   
+@media screen and (max-width: 1126px)   {
+    #mySidebar{
+        width:19% !important;
         /*float:none;*/
-    }    
+    }
     #contenido{
-        width:73%;   
-    }    
+        width:81% !important;
+    }
+}
+@media screen and (max-width: 1125px)   {
+    #mySidebar{
+        width:27% !important;
+        /*float:none;*/
+    }
+    #contenido{
+        width:73% !important;
+    }
 }
 @media screen and (max-width: 935px)   {
-    .menu{
-        width:30%;   
+    #mySidebar{
+        width:30% !important;
         /*float:none;*/
-    }    
+    }
     #contenido{
-        width:70%;   
-    }    
+        width:70% !important;
+    }
 }
-@media screen and (max-width: 850px)   {
-    .menu{
-        width:33%;   
-        /*float:none;*/
-    }    
+@media screen and (max-width: 901px)   {
+    #mySidebar{
+        width:30% !important;
+    }
+    #contenido .formulario form{
+        padding-left: 15 !important;
+        width: 70% !important;
+    }
     #contenido{
-        width:67%;   
-    }    
+        width:70% !important;
+    }
+
 }
-@media screen and (max-width: 780px)   {
-    .menu{
-        width:36%;   
-        /*float:none;*/
-    }    
+@media screen and (max-width: 900px)   {
+   #mySidebar{
+    width: 0px !important; /* 0 width - change this with JavaScript */
+    z-index: 1 !important; /* Stay on top */
+    left: 0 !important;
+    overflow-x: hidden !important; /* Disable horizontal scroll */
+    transition: 0.5s !important; /* 0.5 second transition effect to slide in the sidebar */
+   }
+    #contenido .formulario form{
+        padding-left: 0px !important;
+        width: 100% !important;
+    }
     #contenido{
-        width:64%;   
-    }    
+        width:100% !important;
+    }
+    .openbtn{
+      display: block !important;
+    }
+    .closebtn{
+      display: block !important;
+    }
+}
+
+#mySidebar.show{
+    width:300px !important;
+}
+#mySidebar.noshow{
+    width:0px !important;
 }
